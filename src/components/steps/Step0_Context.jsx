@@ -1,22 +1,23 @@
 
 import React from 'react';
 
-export default function Step0_Context({ data, update }) {
+export default function Step0_Context({ data, update, t }) {
+    if (!t) return null;
     return (
         <div className="fade-in">
-            <h2>Tell Us About Your Venue</h2>
-            <p>Basic information to contextualize your analysis.</p>
+            <h2>{t.s0Title}</h2>
+            <p dangerouslySetInnerHTML={{ __html: t.s0Desc }}></p>
 
-            <label>Venue Name</label>
+            <label>{t.s0Name}</label>
             <input
                 type="text"
                 value={data.name}
                 onChange={(e) => update('name', e.target.value)}
-                placeholder="e.g. Dillon Music Venue"
+                placeholder="e.g. Bling Venue"
                 autoFocus
             />
 
-            <label>Capacity</label>
+            <label>{t.s0Cap}</label>
             <input
                 type="number"
                 value={data.capacity}
@@ -24,7 +25,7 @@ export default function Step0_Context({ data, update }) {
                 placeholder="e.g. 500"
             />
 
-            <label>Years in Operation</label>
+            <label>{t.s0Years}</label>
             <input
                 type="number"
                 value={data.years}
@@ -32,7 +33,7 @@ export default function Step0_Context({ data, update }) {
                 placeholder="e.g. 8"
             />
 
-            <label>Average Events per Month</label>
+            <label>{t.s0Events}</label>
             <input
                 type="number"
                 value={data.events}

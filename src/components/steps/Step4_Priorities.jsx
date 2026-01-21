@@ -2,30 +2,31 @@
 import React from 'react';
 import LikertScale from '../LikertScale';
 
-export default function Step4_Priorities({ data, update }) {
+export default function Step4_Priorities({ data, update, t }) {
+    if (!t) return null;
     return (
         <div className="fade-in">
-            <h2>Step 4: Prioritization</h2>
-            <p>What matters most to your venue right now?</p>
+            <h2>{t.s4Title}</h2>
+            <p>{t.s4Desc}</p>
 
-            <label>Primary Strategic Goal (Next 12 Mos)</label>
+            <label>{t.s4Goal}</label>
             <select value={data.goal} onChange={(e) => update('goal', e.target.value)}>
-                <option value="Survive">Survive (Maintain operations)</option>
-                <option value="Stabilize">Stabilize (Improve margins)</option>
-                <option value="Grow">Grow (Expand events/revenue)</option>
-                <option value="Innovate">Innovate (New formats)</option>
+                <option value="Survive">{t.linkSurvive}</option>
+                <option value="Stabilize">{t.linkStabilize}</option>
+                <option value="Grow">{t.linkGrow}</option>
+                <option value="Innovate">{t.linkInnovate}</option>
             </select>
 
-            <label>Biggest Area of Concern</label>
+            <label>{t.s4Concern}</label>
             <select value={data.concern} onChange={(e) => update('concern', e.target.value)}>
-                <option value="Financial stability">Financial Stability</option>
-                <option value="Operational quality">Operational Quality</option>
-                <option value="Market competition">Market Competition</option>
-                <option value="External threats">External Threats (Policy/Lease)</option>
+                <option value="Financial stability">{t.conFin}</option>
+                <option value="Operational quality">{t.conOps}</option>
+                <option value="Market competition">{t.conComp}</option>
+                <option value="External threats">{t.conExt}</option>
             </select>
 
             <LikertScale
-                label="Urgency for Change (1=Comfortable, 5=Crisis)"
+                label={t.s4Urgency}
                 value={data.urgency}
                 onChange={(v) => update('urgency', v)}
             />

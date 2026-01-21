@@ -11,7 +11,7 @@ import Step5_Summary from './steps/Step5_Summary';
 
 const TOTAL_STEPS = 5; // 0 to 4 are input steps, 5 is summary
 
-export default function WizardContainer() {
+export default function WizardContainer({ t, lang }) {
     const [step, setStep] = useState(0);
     const [data, setData] = useState({
         venue: { name: '', capacity: '', years: '', events: '' },
@@ -34,15 +34,17 @@ export default function WizardContainer() {
     // Determine what component to render
     const renderStep = () => {
         switch (step) {
-            case 0: return <Step0_Context data={data.venue} update={(f, v) => updateData('venue', f, v)} />;
-            case 1: return <Step1_Financial data={data.financial} update={(f, v) => updateData('financial', f, v)} />;
-            case 2: return <Step2_Operations data={data.operations} update={(f, v) => updateData('operations', f, v)} />;
-            case 3: return <Step3_External data={data.external} update={(f, v) => updateData('external', f, v)} />;
-            case 4: return <Step4_Priorities data={data.priorities} update={(f, v) => updateData('priorities', f, v)} />;
-            case 5: return <Step5_Summary data={data} restart={() => setStep(0)} />;
+            case 0: return <Step0_Context data={data.venue} update={(f, v) => updateData('venue', f, v)} t={t} />;
+            case 1: return <Step1_Financial data={data.financial} update={(f, v) => updateData('financial', f, v)} t={t} />;
+            case 2: return <Step2_Operations data={data.operations} update={(f, v) => updateData('operations', f, v)} t={t} />;
+            case 3: return <Step3_External data={data.external} update={(f, v) => updateData('external', f, v)} t={t} />;
+            case 4: return <Step4_Priorities data={data.priorities} update={(f, v) => updateData('priorities', f, v)} t={t} />;
+            case 5: return <Step5_Summary data={data} restart={() => setStep(0)} t={t} lang={lang} />;
             default: return null;
         }
     };
+
+    if (!t) return null;
 
     const progress = (step / TOTAL_STEPS) * 100;
 
@@ -68,10 +70,10 @@ export default function WizardContainer() {
             {step < TOTAL_STEPS && (
                 <footer style={{ display: 'flex', justifyContent: 'space-between', marginTop: '3rem', borderTop: '1px solid rgba(255,255,255,0.08)', paddingTop: '1.5rem' }}>
                     <button className="btn btn-secondary" onClick={prevStep} disabled={step === 0} style={{ opacity: step === 0 ? 0.5 : 1 }}>
-                        <ArrowLeft size={18} /> Back
+                        <ArrowLeft size={18} /> {t.back}
                     </button>
                     <button className="btn btn-primary" onClick={nextStep} style={{ width: 'auto' }}>
-                        {step === TOTAL_STEPS - 1 ? 'Generate Analysis' : 'Next Step'} <ArrowRight size={18} />
+                        {step === TOTAL_STEPS - 1 ? t.generate : t.nextStep} <ArrowRight size={18} />
                     </button>
                 </footer>
             )}

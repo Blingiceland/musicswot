@@ -1,7 +1,10 @@
 import React from 'react';
 import { ArrowRight, BarChart3, ShieldCheck, Target } from 'lucide-react';
 
-export default function LandingPage({ onStart }) {
+export default function LandingPage({ onStart, t }) {
+    // Guard against undefined t during hot reload or init
+    if (!t) return null;
+
     return (
         <div className="fade-in" style={{ textAlign: 'center' }}>
             {/* Hero Section */}
@@ -17,21 +20,20 @@ export default function LandingPage({ onStart }) {
                     marginBottom: '1.5rem',
                     border: '1px solid rgba(139, 92, 246, 0.2)'
                 }}>
-                    <span style={{ fontSize: '0.9rem', fontWeight: '600' }}>Academic Edition v1.0</span>
+                    <span style={{ fontSize: '0.9rem', fontWeight: '600' }}>{t.badge}</span>
                 </div>
 
                 <h1 style={{ fontSize: '3.5rem', lineHeight: '1.1', marginBottom: '1.5rem' }}>
-                    Master Your Venue's <br />
+                    {t.heroTitle} <br />
                     <span style={{
                         background: 'linear-gradient(to right, #a78bfa, #2dd4bf)',
                         WebkitBackgroundClip: 'text',
                         WebkitTextFillColor: 'transparent'
-                    }}>Strategic Potential</span>
+                    }}>{t.heroHighlight}</span>
                 </h1>
 
                 <p style={{ fontSize: '1.25rem', maxWidth: '600px', margin: '0 auto 2.5rem', color: '#94a3b8' }}>
-                    A professional SWOT analysis tool designed specifically for live music venues.
-                    Identify strengths, mitigate threats, and plan for growth in minutes.
+                    {t.heroSubtitle}
                 </p>
 
                 <button
@@ -43,7 +45,7 @@ export default function LandingPage({ onStart }) {
                         boxShadow: '0 0 30px -5px rgba(139, 92, 246, 0.5)'
                     }}
                 >
-                    Start Free Analysis <ArrowRight />
+                    {t.startBtn} <ArrowRight />
                 </button>
             </div>
 
@@ -56,18 +58,18 @@ export default function LandingPage({ onStart }) {
             }}>
                 <FeatureCard
                     icon={<BarChart3 color="#a78bfa" />}
-                    title="Financial Health"
-                    desc="Analyze your cash flow, margins, and funding access to ensure stability."
+                    title={t.feat1Title}
+                    desc={t.feat1Desc}
                 />
                 <FeatureCard
                     icon={<Target color="#2dd4bf" />}
-                    title="Strategic Focus"
-                    desc="Prioritize goals based on real data, managing internal and external factors."
+                    title={t.feat2Title}
+                    desc={t.feat2Desc}
                 />
                 <FeatureCard
                     icon={<ShieldCheck color="#f472b6" />}
-                    title="Risk Mitigation"
-                    desc="Identify blind spots in your operations and market environment."
+                    title={t.feat3Title}
+                    desc={t.feat3Desc}
                 />
             </div>
         </div>
