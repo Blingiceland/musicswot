@@ -99,6 +99,21 @@ export default function Step5_Summary({ data, restart, t }) {
                 </div>
             </div>
 
+            {/* Critique / Methodology Warning (Part 2 of Assignment) */}
+            <div style={{
+                background: 'rgba(220, 38, 38, 0.1)',
+                border: '1px solid rgba(220, 38, 38, 0.4)',
+                borderRadius: '0.75rem',
+                padding: '1.25rem',
+                marginBottom: '2rem',
+                marginTop: '2rem'
+            }}>
+                <h3 style={{ fontSize: '1.1rem', color: '#f87171', display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
+                    {t.critiqueTitle}
+                </h3>
+                <p style={{ fontSize: '0.95rem', color: '#fca5a5', lineHeight: '1.5' }} dangerouslySetInnerHTML={{ __html: t.critiqueText }} />
+            </div>
+
             <button className="btn btn-secondary" onClick={restart} style={{ width: '100%', justifyContent: 'center' }}>
                 <RotateCcw size={18} /> {t.startNew}
             </button>

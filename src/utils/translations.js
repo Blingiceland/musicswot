@@ -101,6 +101,10 @@ export const translations = {
         s5BasedOn: "Based on your goal to",
         s5None: "No major items identified",
 
+        // Critique Box (Part 2 of Assignment)
+        critiqueTitle: "⚠️ Methodological Limitations (The 'Design School' Trap)",
+        critiqueText: "This analysis represents a simplified <strong>'Snapshot'</strong> based on subjective inputs (the 'God-like Manager' perspective). While useful for quick alignment, it risks oversimplifying complex realities. A robust strategy requires validated data points, collaborative input from diverse stakeholders, and continuous iteration—not just a one-time static report.",
+
         // Logic Strings (Outputs)
         l_StrongCash: "Strong Cash Reserves",
         l_LowCash: "Low Cash Reserves",
@@ -234,6 +238,10 @@ export const translations = {
         s5Top3: "Topp 3 Forgangsatriði",
         s5BasedOn: "Byggt á markmiði þínu um að",
         s5None: "Engin stór atriði fundust",
+
+        // Critique Box (Part 2 of Assignment)
+        critiqueTitle: "⚠️ Aðferðafræðilegar Takmarkanir (Gildra Hönnunarskólans)",
+        critiqueText: "Þessi greining sýnir einfaldaða <strong>'Augnabliksmynd'</strong> byggða á huglægu mati stjórnanda ('Guðlega forsjónin'). Þótt hún sé gagnleg til að stilla saman strengi, er hætt við að hún sé of einfölduð. Öflug stefnumótun krefst raunprófaðra gagna, samvinnu margra hagsmunaaðila og stöðugrar endurskoðunar – ekki bara einnar kyrrstæðrar skýrslu.",
 
         // Logic Strings (Outputs)
         l_StrongCash: "Sterk Sjóðstaða",
